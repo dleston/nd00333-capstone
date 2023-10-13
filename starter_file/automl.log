@@ -1,0 +1,562 @@
+2023-10-05 10:11:31.860 - INFO - 19606 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 10:11:31.886 - INFO - 19606 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 10:11:31.914 - INFO - 19606 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 10:11:32.149 - INFO - 19606 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=234.71[ms]
+2023-10-05 10:11:32.228 - INFO - 19606 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=341.81[ms]
+2023-10-05 10:11:32.229 - INFO - 19606 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-10-05 10:11:35.315 - CRITICAL - 19606 - azureml.train.automl._model_download_utilities.log_traceback:227 - Type: Unclassified
+Class: ImportError
+Message: cannot import name '_centered' from 'scipy.signal.signaltools' (/anaconda/envs/azureml_py38/lib/python3.8/site-packages/scipy/signal/signaltools.py)
+Traceback:
+  File "_model_download_utilities.py", line 172, in _load_automl_model
+    fitted_model = pickle.load(model_file)  # type: Optional[Any]
+  File "__init__.py", line 6, in <module>
+    from .forecasting_pipeline_wrapper import RegressionPipeline, ForecastingPipelineWrapper
+  File "forecasting_pipeline_wrapper.py", line 20, in <module>
+    from .forecasting_pipeline_wrapper_base import ForecastingPipelineWrapperBase
+  File "forecasting_pipeline_wrapper_base.py", line 55, in <module>
+    from .forecasting_models import Naive
+  File "forecasting_models.py", line 20, in <module>
+    from ._timeseries._arimax import Arimax
+  File "_arimax.py", line 11, in <module>
+    import pmdarima as pmd
+  File "__init__.py", line 51, in <module>
+    from .arima import auto_arima, ARIMA, AutoARIMA, StepwiseContext, decompose
+  File "__init__.py", line 6, in <module>
+    from .arima import *
+  File "arima.py", line 11, in <module>
+    from statsmodels import api as sm
+  File "api.py", line 27, in <module>
+    from .tsa import api as tsa
+  File "api.py", line 31, in <module>
+    from .filters import api as filters
+  File "api.py", line 6, in <module>
+    from .filtertools import miso_lfilter, convolution_filter, recursive_filter
+  File "filtertools.py", line 18, in <module>
+    from scipy.signal.signaltools import _centered as trim_centered
+
+ExceptionTarget: Unspecified
+2023-10-05 10:11:35.574 - CRITICAL - 19606 - azureml.train.automl._model_download_utilities.log_traceback:227 - Type: Unclassified
+Class: ImportError
+Message: cannot import name '_centered' from 'scipy.signal.signaltools' (/anaconda/envs/azureml_py38/lib/python3.8/site-packages/scipy/signal/signaltools.py)
+Traceback:
+  File "telemetry_activity_logger.py", line 58, in _log_activity
+    yield
+  File "_model_download_utilities.py", line 80, in _download_automl_model
+    model = _load_automl_model(model_path, suffix)
+  File "_model_download_utilities.py", line 172, in _load_automl_model
+    fitted_model = pickle.load(model_file)  # type: Optional[Any]
+  File "__init__.py", line 6, in <module>
+    from .forecasting_pipeline_wrapper import RegressionPipeline, ForecastingPipelineWrapper
+  File "forecasting_pipeline_wrapper.py", line 20, in <module>
+    from .forecasting_pipeline_wrapper_base import ForecastingPipelineWrapperBase
+  File "forecasting_pipeline_wrapper_base.py", line 55, in <module>
+    from .forecasting_models import Naive
+  File "forecasting_models.py", line 20, in <module>
+    from ._timeseries._arimax import Arimax
+  File "_arimax.py", line 11, in <module>
+    import pmdarima as pmd
+  File "__init__.py", line 51, in <module>
+    from .arima import auto_arima, ARIMA, AutoARIMA, StepwiseContext, decompose
+  File "__init__.py", line 6, in <module>
+    from .arima import *
+  File "arima.py", line 11, in <module>
+    from statsmodels import api as sm
+  File "api.py", line 27, in <module>
+    from .tsa import api as tsa
+  File "api.py", line 31, in <module>
+    from .filters import api as filters
+  File "api.py", line 6, in <module>
+    from .filtertools import miso_lfilter, convolution_filter, recursive_filter
+  File "filtertools.py", line 18, in <module>
+    from scipy.signal.signaltools import _centered as trim_centered
+
+ExceptionTarget: Unspecified
+2023-10-05 10:11:35.574 - INFO - 19606 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Failure, Duration=3345.54[ms]
+2023-10-05 10:11:35.588 - CRITICAL - 19606 - azureml.train.automl.run.log_traceback:227 - Type: Unclassified
+Class: ImportError
+Message: cannot import name '_centered' from 'scipy.signal.signaltools' (/anaconda/envs/azureml_py38/lib/python3.8/site-packages/scipy/signal/signaltools.py)
+Traceback:
+  File "telemetry_activity_logger.py", line 58, in _log_activity
+    yield
+  File "run.py", line 718, in get_output
+    fitted_model = _download_automl_model(curr_run, model_name)
+  File "_model_download_utilities.py", line 80, in _download_automl_model
+    model = _load_automl_model(model_path, suffix)
+  File "_model_download_utilities.py", line 172, in _load_automl_model
+    fitted_model = pickle.load(model_file)  # type: Optional[Any]
+  File "__init__.py", line 6, in <module>
+    from .forecasting_pipeline_wrapper import RegressionPipeline, ForecastingPipelineWrapper
+  File "forecasting_pipeline_wrapper.py", line 20, in <module>
+    from .forecasting_pipeline_wrapper_base import ForecastingPipelineWrapperBase
+  File "forecasting_pipeline_wrapper_base.py", line 55, in <module>
+    from .forecasting_models import Naive
+  File "forecasting_models.py", line 20, in <module>
+    from ._timeseries._arimax import Arimax
+  File "_arimax.py", line 11, in <module>
+    import pmdarima as pmd
+  File "__init__.py", line 51, in <module>
+    from .arima import auto_arima, ARIMA, AutoARIMA, StepwiseContext, decompose
+  File "__init__.py", line 6, in <module>
+    from .arima import *
+  File "arima.py", line 11, in <module>
+    from statsmodels import api as sm
+  File "api.py", line 27, in <module>
+    from .tsa import api as tsa
+  File "api.py", line 31, in <module>
+    from .filters import api as filters
+  File "api.py", line 6, in <module>
+    from .filtertools import miso_lfilter, convolution_filter, recursive_filter
+  File "filtertools.py", line 18, in <module>
+    from scipy.signal.signaltools import _centered as trim_centered
+
+ExceptionTarget: Unspecified
+2023-10-05 10:11:35.588 - INFO - 19606 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Failure, Duration=3728.21[ms]
+2023-10-05 10:18:11.139 - INFO - 19606 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 10:18:11.161 - INFO - 19606 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 10:18:11.182 - INFO - 19606 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 10:18:11.363 - INFO - 19606 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=181.0[ms]
+2023-10-05 10:18:11.435 - INFO - 19606 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=273.89[ms]
+2023-10-05 10:18:11.435 - INFO - 19606 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-10-05 10:18:12.327 - CRITICAL - 19606 - azureml.train.automl._model_download_utilities.log_traceback:227 - Type: Unclassified
+Class: ImportError
+Message: cannot import name '_centered' from 'scipy.signal.signaltools' (/anaconda/envs/azureml_py38/lib/python3.8/site-packages/scipy/signal/signaltools.py)
+Traceback:
+  File "_model_download_utilities.py", line 172, in _load_automl_model
+    fitted_model = pickle.load(model_file)  # type: Optional[Any]
+  File "__init__.py", line 6, in <module>
+    from .forecasting_pipeline_wrapper import RegressionPipeline, ForecastingPipelineWrapper
+  File "forecasting_pipeline_wrapper.py", line 20, in <module>
+    from .forecasting_pipeline_wrapper_base import ForecastingPipelineWrapperBase
+  File "forecasting_pipeline_wrapper_base.py", line 55, in <module>
+    from .forecasting_models import Naive
+  File "forecasting_models.py", line 20, in <module>
+    from ._timeseries._arimax import Arimax
+  File "_arimax.py", line 11, in <module>
+    import pmdarima as pmd
+  File "__init__.py", line 51, in <module>
+    from .arima import auto_arima, ARIMA, AutoARIMA, StepwiseContext, decompose
+  File "__init__.py", line 6, in <module>
+    from .arima import *
+  File "arima.py", line 11, in <module>
+    from statsmodels import api as sm
+  File "api.py", line 27, in <module>
+    from .tsa import api as tsa
+  File "api.py", line 31, in <module>
+    from .filters import api as filters
+  File "api.py", line 6, in <module>
+    from .filtertools import miso_lfilter, convolution_filter, recursive_filter
+  File "filtertools.py", line 18, in <module>
+    from scipy.signal.signaltools import _centered as trim_centered
+
+ExceptionTarget: Unspecified
+2023-10-05 10:18:12.515 - CRITICAL - 19606 - azureml.train.automl._model_download_utilities.log_traceback:227 - Type: Unclassified
+Class: ImportError
+Message: cannot import name '_centered' from 'scipy.signal.signaltools' (/anaconda/envs/azureml_py38/lib/python3.8/site-packages/scipy/signal/signaltools.py)
+Traceback:
+  File "telemetry_activity_logger.py", line 58, in _log_activity
+    yield
+  File "_model_download_utilities.py", line 80, in _download_automl_model
+    model = _load_automl_model(model_path, suffix)
+  File "_model_download_utilities.py", line 172, in _load_automl_model
+    fitted_model = pickle.load(model_file)  # type: Optional[Any]
+  File "__init__.py", line 6, in <module>
+    from .forecasting_pipeline_wrapper import RegressionPipeline, ForecastingPipelineWrapper
+  File "forecasting_pipeline_wrapper.py", line 20, in <module>
+    from .forecasting_pipeline_wrapper_base import ForecastingPipelineWrapperBase
+  File "forecasting_pipeline_wrapper_base.py", line 55, in <module>
+    from .forecasting_models import Naive
+  File "forecasting_models.py", line 20, in <module>
+    from ._timeseries._arimax import Arimax
+  File "_arimax.py", line 11, in <module>
+    import pmdarima as pmd
+  File "__init__.py", line 51, in <module>
+    from .arima import auto_arima, ARIMA, AutoARIMA, StepwiseContext, decompose
+  File "__init__.py", line 6, in <module>
+    from .arima import *
+  File "arima.py", line 11, in <module>
+    from statsmodels import api as sm
+  File "api.py", line 27, in <module>
+    from .tsa import api as tsa
+  File "api.py", line 31, in <module>
+    from .filters import api as filters
+  File "api.py", line 6, in <module>
+    from .filtertools import miso_lfilter, convolution_filter, recursive_filter
+  File "filtertools.py", line 18, in <module>
+    from scipy.signal.signaltools import _centered as trim_centered
+
+ExceptionTarget: Unspecified
+2023-10-05 10:18:12.516 - INFO - 19606 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Failure, Duration=1080.57[ms]
+2023-10-05 10:18:12.518 - CRITICAL - 19606 - azureml.train.automl.run.log_traceback:227 - Type: Unclassified
+Class: ImportError
+Message: cannot import name '_centered' from 'scipy.signal.signaltools' (/anaconda/envs/azureml_py38/lib/python3.8/site-packages/scipy/signal/signaltools.py)
+Traceback:
+  File "telemetry_activity_logger.py", line 58, in _log_activity
+    yield
+  File "run.py", line 718, in get_output
+    fitted_model = _download_automl_model(curr_run, model_name)
+  File "_model_download_utilities.py", line 80, in _download_automl_model
+    model = _load_automl_model(model_path, suffix)
+  File "_model_download_utilities.py", line 172, in _load_automl_model
+    fitted_model = pickle.load(model_file)  # type: Optional[Any]
+  File "__init__.py", line 6, in <module>
+    from .forecasting_pipeline_wrapper import RegressionPipeline, ForecastingPipelineWrapper
+  File "forecasting_pipeline_wrapper.py", line 20, in <module>
+    from .forecasting_pipeline_wrapper_base import ForecastingPipelineWrapperBase
+  File "forecasting_pipeline_wrapper_base.py", line 55, in <module>
+    from .forecasting_models import Naive
+  File "forecasting_models.py", line 20, in <module>
+    from ._timeseries._arimax import Arimax
+  File "_arimax.py", line 11, in <module>
+    import pmdarima as pmd
+  File "__init__.py", line 51, in <module>
+    from .arima import auto_arima, ARIMA, AutoARIMA, StepwiseContext, decompose
+  File "__init__.py", line 6, in <module>
+    from .arima import *
+  File "arima.py", line 11, in <module>
+    from statsmodels import api as sm
+  File "api.py", line 27, in <module>
+    from .tsa import api as tsa
+  File "api.py", line 31, in <module>
+    from .filters import api as filters
+  File "api.py", line 6, in <module>
+    from .filtertools import miso_lfilter, convolution_filter, recursive_filter
+  File "filtertools.py", line 18, in <module>
+    from scipy.signal.signaltools import _centered as trim_centered
+
+ExceptionTarget: Unspecified
+2023-10-05 10:18:12.518 - INFO - 19606 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Failure, Duration=1379.06[ms]
+2023-10-05 10:20:45.701 - INFO - 19606 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 10:20:45.727 - INFO - 19606 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 10:20:45.747 - INFO - 19606 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 10:20:45.962 - INFO - 19606 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=215.14[ms]
+2023-10-05 10:20:46.077 - INFO - 19606 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=350.25[ms]
+2023-10-05 10:20:46.077 - INFO - 19606 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-10-05 10:20:46.769 - CRITICAL - 19606 - azureml.train.automl._model_download_utilities.log_traceback:227 - Type: Unclassified
+Class: ImportError
+Message: cannot import name '_centered' from 'scipy.signal.signaltools' (/anaconda/envs/azureml_py38/lib/python3.8/site-packages/scipy/signal/signaltools.py)
+Traceback:
+  File "_model_download_utilities.py", line 172, in _load_automl_model
+    fitted_model = pickle.load(model_file)  # type: Optional[Any]
+  File "__init__.py", line 6, in <module>
+    from .forecasting_pipeline_wrapper import RegressionPipeline, ForecastingPipelineWrapper
+  File "forecasting_pipeline_wrapper.py", line 20, in <module>
+    from .forecasting_pipeline_wrapper_base import ForecastingPipelineWrapperBase
+  File "forecasting_pipeline_wrapper_base.py", line 55, in <module>
+    from .forecasting_models import Naive
+  File "forecasting_models.py", line 20, in <module>
+    from ._timeseries._arimax import Arimax
+  File "_arimax.py", line 11, in <module>
+    import pmdarima as pmd
+  File "__init__.py", line 51, in <module>
+    from .arima import auto_arima, ARIMA, AutoARIMA, StepwiseContext, decompose
+  File "__init__.py", line 6, in <module>
+    from .arima import *
+  File "arima.py", line 11, in <module>
+    from statsmodels import api as sm
+  File "api.py", line 27, in <module>
+    from .tsa import api as tsa
+  File "api.py", line 31, in <module>
+    from .filters import api as filters
+  File "api.py", line 6, in <module>
+    from .filtertools import miso_lfilter, convolution_filter, recursive_filter
+  File "filtertools.py", line 18, in <module>
+    from scipy.signal.signaltools import _centered as trim_centered
+
+ExceptionTarget: Unspecified
+2023-10-05 10:20:47.052 - CRITICAL - 19606 - azureml.train.automl._model_download_utilities.log_traceback:227 - Type: Unclassified
+Class: ImportError
+Message: cannot import name '_centered' from 'scipy.signal.signaltools' (/anaconda/envs/azureml_py38/lib/python3.8/site-packages/scipy/signal/signaltools.py)
+Traceback:
+  File "telemetry_activity_logger.py", line 58, in _log_activity
+    yield
+  File "_model_download_utilities.py", line 80, in _download_automl_model
+    model = _load_automl_model(model_path, suffix)
+  File "_model_download_utilities.py", line 172, in _load_automl_model
+    fitted_model = pickle.load(model_file)  # type: Optional[Any]
+  File "__init__.py", line 6, in <module>
+    from .forecasting_pipeline_wrapper import RegressionPipeline, ForecastingPipelineWrapper
+  File "forecasting_pipeline_wrapper.py", line 20, in <module>
+    from .forecasting_pipeline_wrapper_base import ForecastingPipelineWrapperBase
+  File "forecasting_pipeline_wrapper_base.py", line 55, in <module>
+    from .forecasting_models import Naive
+  File "forecasting_models.py", line 20, in <module>
+    from ._timeseries._arimax import Arimax
+  File "_arimax.py", line 11, in <module>
+    import pmdarima as pmd
+  File "__init__.py", line 51, in <module>
+    from .arima import auto_arima, ARIMA, AutoARIMA, StepwiseContext, decompose
+  File "__init__.py", line 6, in <module>
+    from .arima import *
+  File "arima.py", line 11, in <module>
+    from statsmodels import api as sm
+  File "api.py", line 27, in <module>
+    from .tsa import api as tsa
+  File "api.py", line 31, in <module>
+    from .filters import api as filters
+  File "api.py", line 6, in <module>
+    from .filtertools import miso_lfilter, convolution_filter, recursive_filter
+  File "filtertools.py", line 18, in <module>
+    from scipy.signal.signaltools import _centered as trim_centered
+
+ExceptionTarget: Unspecified
+2023-10-05 10:20:47.055 - INFO - 19606 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Failure, Duration=977.55[ms]
+2023-10-05 10:20:47.059 - CRITICAL - 19606 - azureml.train.automl.run.log_traceback:227 - Type: Unclassified
+Class: ImportError
+Message: cannot import name '_centered' from 'scipy.signal.signaltools' (/anaconda/envs/azureml_py38/lib/python3.8/site-packages/scipy/signal/signaltools.py)
+Traceback:
+  File "telemetry_activity_logger.py", line 58, in _log_activity
+    yield
+  File "run.py", line 718, in get_output
+    fitted_model = _download_automl_model(curr_run, model_name)
+  File "_model_download_utilities.py", line 80, in _download_automl_model
+    model = _load_automl_model(model_path, suffix)
+  File "_model_download_utilities.py", line 172, in _load_automl_model
+    fitted_model = pickle.load(model_file)  # type: Optional[Any]
+  File "__init__.py", line 6, in <module>
+    from .forecasting_pipeline_wrapper import RegressionPipeline, ForecastingPipelineWrapper
+  File "forecasting_pipeline_wrapper.py", line 20, in <module>
+    from .forecasting_pipeline_wrapper_base import ForecastingPipelineWrapperBase
+  File "forecasting_pipeline_wrapper_base.py", line 55, in <module>
+    from .forecasting_models import Naive
+  File "forecasting_models.py", line 20, in <module>
+    from ._timeseries._arimax import Arimax
+  File "_arimax.py", line 11, in <module>
+    import pmdarima as pmd
+  File "__init__.py", line 51, in <module>
+    from .arima import auto_arima, ARIMA, AutoARIMA, StepwiseContext, decompose
+  File "__init__.py", line 6, in <module>
+    from .arima import *
+  File "arima.py", line 11, in <module>
+    from statsmodels import api as sm
+  File "api.py", line 27, in <module>
+    from .tsa import api as tsa
+  File "api.py", line 31, in <module>
+    from .filters import api as filters
+  File "api.py", line 6, in <module>
+    from .filtertools import miso_lfilter, convolution_filter, recursive_filter
+  File "filtertools.py", line 18, in <module>
+    from scipy.signal.signaltools import _centered as trim_centered
+
+ExceptionTarget: Unspecified
+2023-10-05 10:20:47.060 - INFO - 19606 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Failure, Duration=1358.42[ms]
+2023-10-05 10:20:57.726 - INFO - 19606 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 10:20:57.751 - INFO - 19606 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 10:20:57.775 - INFO - 19606 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 10:20:57.944 - INFO - 19606 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=168.79[ms]
+2023-10-05 10:20:58.012 - INFO - 19606 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=260.88[ms]
+2023-10-05 10:20:58.013 - INFO - 19606 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-10-05 10:20:58.731 - CRITICAL - 19606 - azureml.train.automl._model_download_utilities.log_traceback:227 - Type: Unclassified
+Class: ImportError
+Message: cannot import name '_centered' from 'scipy.signal.signaltools' (/anaconda/envs/azureml_py38/lib/python3.8/site-packages/scipy/signal/signaltools.py)
+Traceback:
+  File "_model_download_utilities.py", line 172, in _load_automl_model
+    fitted_model = pickle.load(model_file)  # type: Optional[Any]
+  File "__init__.py", line 6, in <module>
+    from .forecasting_pipeline_wrapper import RegressionPipeline, ForecastingPipelineWrapper
+  File "forecasting_pipeline_wrapper.py", line 20, in <module>
+    from .forecasting_pipeline_wrapper_base import ForecastingPipelineWrapperBase
+  File "forecasting_pipeline_wrapper_base.py", line 55, in <module>
+    from .forecasting_models import Naive
+  File "forecasting_models.py", line 20, in <module>
+    from ._timeseries._arimax import Arimax
+  File "_arimax.py", line 11, in <module>
+    import pmdarima as pmd
+  File "__init__.py", line 51, in <module>
+    from .arima import auto_arima, ARIMA, AutoARIMA, StepwiseContext, decompose
+  File "__init__.py", line 6, in <module>
+    from .arima import *
+  File "arima.py", line 11, in <module>
+    from statsmodels import api as sm
+  File "api.py", line 27, in <module>
+    from .tsa import api as tsa
+  File "api.py", line 31, in <module>
+    from .filters import api as filters
+  File "api.py", line 6, in <module>
+    from .filtertools import miso_lfilter, convolution_filter, recursive_filter
+  File "filtertools.py", line 18, in <module>
+    from scipy.signal.signaltools import _centered as trim_centered
+
+ExceptionTarget: Unspecified
+2023-10-05 10:20:58.988 - CRITICAL - 19606 - azureml.train.automl._model_download_utilities.log_traceback:227 - Type: Unclassified
+Class: ImportError
+Message: cannot import name '_centered' from 'scipy.signal.signaltools' (/anaconda/envs/azureml_py38/lib/python3.8/site-packages/scipy/signal/signaltools.py)
+Traceback:
+  File "telemetry_activity_logger.py", line 58, in _log_activity
+    yield
+  File "_model_download_utilities.py", line 80, in _download_automl_model
+    model = _load_automl_model(model_path, suffix)
+  File "_model_download_utilities.py", line 172, in _load_automl_model
+    fitted_model = pickle.load(model_file)  # type: Optional[Any]
+  File "__init__.py", line 6, in <module>
+    from .forecasting_pipeline_wrapper import RegressionPipeline, ForecastingPipelineWrapper
+  File "forecasting_pipeline_wrapper.py", line 20, in <module>
+    from .forecasting_pipeline_wrapper_base import ForecastingPipelineWrapperBase
+  File "forecasting_pipeline_wrapper_base.py", line 55, in <module>
+    from .forecasting_models import Naive
+  File "forecasting_models.py", line 20, in <module>
+    from ._timeseries._arimax import Arimax
+  File "_arimax.py", line 11, in <module>
+    import pmdarima as pmd
+  File "__init__.py", line 51, in <module>
+    from .arima import auto_arima, ARIMA, AutoARIMA, StepwiseContext, decompose
+  File "__init__.py", line 6, in <module>
+    from .arima import *
+  File "arima.py", line 11, in <module>
+    from statsmodels import api as sm
+  File "api.py", line 27, in <module>
+    from .tsa import api as tsa
+  File "api.py", line 31, in <module>
+    from .filters import api as filters
+  File "api.py", line 6, in <module>
+    from .filtertools import miso_lfilter, convolution_filter, recursive_filter
+  File "filtertools.py", line 18, in <module>
+    from scipy.signal.signaltools import _centered as trim_centered
+
+ExceptionTarget: Unspecified
+2023-10-05 10:20:58.989 - INFO - 19606 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Failure, Duration=975.4[ms]
+2023-10-05 10:20:58.990 - CRITICAL - 19606 - azureml.train.automl.run.log_traceback:227 - Type: Unclassified
+Class: ImportError
+Message: cannot import name '_centered' from 'scipy.signal.signaltools' (/anaconda/envs/azureml_py38/lib/python3.8/site-packages/scipy/signal/signaltools.py)
+Traceback:
+  File "telemetry_activity_logger.py", line 58, in _log_activity
+    yield
+  File "run.py", line 718, in get_output
+    fitted_model = _download_automl_model(curr_run, model_name)
+  File "_model_download_utilities.py", line 80, in _download_automl_model
+    model = _load_automl_model(model_path, suffix)
+  File "_model_download_utilities.py", line 172, in _load_automl_model
+    fitted_model = pickle.load(model_file)  # type: Optional[Any]
+  File "__init__.py", line 6, in <module>
+    from .forecasting_pipeline_wrapper import RegressionPipeline, ForecastingPipelineWrapper
+  File "forecasting_pipeline_wrapper.py", line 20, in <module>
+    from .forecasting_pipeline_wrapper_base import ForecastingPipelineWrapperBase
+  File "forecasting_pipeline_wrapper_base.py", line 55, in <module>
+    from .forecasting_models import Naive
+  File "forecasting_models.py", line 20, in <module>
+    from ._timeseries._arimax import Arimax
+  File "_arimax.py", line 11, in <module>
+    import pmdarima as pmd
+  File "__init__.py", line 51, in <module>
+    from .arima import auto_arima, ARIMA, AutoARIMA, StepwiseContext, decompose
+  File "__init__.py", line 6, in <module>
+    from .arima import *
+  File "arima.py", line 11, in <module>
+    from statsmodels import api as sm
+  File "api.py", line 27, in <module>
+    from .tsa import api as tsa
+  File "api.py", line 31, in <module>
+    from .filters import api as filters
+  File "api.py", line 6, in <module>
+    from .filtertools import miso_lfilter, convolution_filter, recursive_filter
+  File "filtertools.py", line 18, in <module>
+    from scipy.signal.signaltools import _centered as trim_centered
+
+ExceptionTarget: Unspecified
+2023-10-05 10:20:58.990 - INFO - 19606 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Failure, Duration=1264.59[ms]
+2023-10-05 11:42:09.187 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 11:42:09.235 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 11:42:09.266 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 11:42:09.484 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=218.76[ms]
+2023-10-05 11:42:09.615 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=379.1[ms]
+2023-10-05 11:42:09.621 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-10-05 11:42:15.203 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:190 - Feature sweeping enabled: False
+2023-10-05 11:42:15.209 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:191 - Feature sweeping timeout: 86400
+2023-10-05 11:42:18.281 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=8659.72[ms]
+2023-10-05 11:42:18.313 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=9125.23[ms]
+2023-10-05 11:42:18.397 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: RegisterModel
+2023-10-05 11:42:18.431 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 11:42:18.698 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=266.95[ms]
+2023-10-05 11:42:20.629 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=RegisterModel, HowEnded=Success, Duration=2232.07[ms]
+2023-10-05 11:42:56.735 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 11:42:56.759 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 11:42:56.784 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 11:42:56.968 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=183.44[ms]
+2023-10-05 11:42:57.059 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=299.31[ms]
+2023-10-05 11:42:57.059 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-10-05 11:42:57.645 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:190 - Feature sweeping enabled: False
+2023-10-05 11:42:57.646 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:191 - Feature sweeping timeout: 86400
+2023-10-05 11:42:57.695 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=636.18[ms]
+2023-10-05 11:42:57.696 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=960.79[ms]
+2023-10-05 11:42:57.782 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: RegisterModel
+2023-10-05 11:42:57.806 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 11:42:57.996 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=189.7[ms]
+2023-10-05 11:42:58.980 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=RegisterModel, HowEnded=Success, Duration=1197.94[ms]
+2023-10-05 11:45:12.965 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 11:45:12.993 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 11:45:13.018 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 11:45:13.198 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=180.61[ms]
+2023-10-05 11:45:13.277 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=283.53[ms]
+2023-10-05 11:45:13.277 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-10-05 11:45:13.823 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:190 - Feature sweeping enabled: False
+2023-10-05 11:45:13.823 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:191 - Feature sweeping timeout: 86400
+2023-10-05 11:45:13.873 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=595.97[ms]
+2023-10-05 11:45:13.874 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=908.61[ms]
+2023-10-05 11:45:21.609 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: RegisterModel
+2023-10-05 11:45:21.637 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 11:45:21.824 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=186.55[ms]
+2023-10-05 11:45:22.869 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=RegisterModel, HowEnded=Success, Duration=1259.87[ms]
+2023-10-05 12:12:58.035 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: RegisterModel
+2023-10-05 12:12:58.058 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 12:12:58.297 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=238.72[ms]
+2023-10-05 12:13:00.057 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=RegisterModel, HowEnded=Success, Duration=2021.59[ms]
+2023-10-05 13:39:10.813 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 13:39:10.823 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 13:39:10.865 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 13:39:11.502 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=636.62[ms]
+2023-10-05 13:39:11.708 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=884.95[ms]
+2023-10-05 13:39:11.709 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-10-05 13:39:13.659 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:190 - Feature sweeping enabled: False
+2023-10-05 13:39:13.659 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:191 - Feature sweeping timeout: 86400
+2023-10-05 13:39:13.710 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=2001.07[ms]
+2023-10-05 13:39:13.711 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=2898.42[ms]
+2023-10-05 13:39:44.839 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 13:39:44.850 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 13:39:44.858 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 13:39:45.801 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=943.44[ms]
+2023-10-05 13:39:46.036 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=1186.65[ms]
+2023-10-05 13:39:46.037 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-10-05 13:39:47.638 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:190 - Feature sweeping enabled: False
+2023-10-05 13:39:47.638 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:191 - Feature sweeping timeout: 86400
+2023-10-05 13:39:47.688 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=1651.33[ms]
+2023-10-05 13:39:47.689 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=2849.76[ms]
+2023-10-05 13:39:58.830 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 13:39:58.840 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 13:39:58.847 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 13:39:59.505 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=658.0[ms]
+2023-10-05 13:39:59.734 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=894.13[ms]
+2023-10-05 13:39:59.734 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-10-05 13:40:01.606 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:190 - Feature sweeping enabled: False
+2023-10-05 13:40:01.606 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:191 - Feature sweeping timeout: 86400
+2023-10-05 13:40:01.659 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=1924.27[ms]
+2023-10-05 13:40:01.659 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=2828.97[ms]
+2023-10-05 13:40:59.232 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 13:40:59.243 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 13:40:59.249 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 13:41:00.261 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=1011.11[ms]
+2023-10-05 13:41:00.575 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=1332.91[ms]
+2023-10-05 13:41:00.576 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-10-05 13:41:02.890 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:190 - Feature sweeping enabled: False
+2023-10-05 13:41:02.891 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:191 - Feature sweeping timeout: 86400
+2023-10-05 13:41:02.946 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=2369.42[ms]
+2023-10-05 13:41:02.946 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=3714.14[ms]
+2023-10-05 13:45:06.265 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 13:45:06.276 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 13:45:06.283 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 13:45:06.437 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=154.35[ms]
+2023-10-05 13:45:06.528 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=251.93[ms]
+2023-10-05 13:45:06.528 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-10-05 13:45:07.405 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:190 - Feature sweeping enabled: False
+2023-10-05 13:45:07.405 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:191 - Feature sweeping timeout: 86400
+2023-10-05 13:45:07.458 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=929.17[ms]
+2023-10-05 13:45:07.458 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=1193.42[ms]
+2023-10-05 13:45:28.377 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 13:45:28.387 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetOutput
+2023-10-05 13:45:28.394 - INFO - 45863 - azureml.train.automl.run._log_activity:55 - ActivityStarted: GetChildren
+2023-10-05 13:45:28.563 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetChildren, HowEnded=Success, Duration=168.64[ms]
+2023-10-05 13:45:28.666 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=279.11[ms]
+2023-10-05 13:45:28.666 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:55 - ActivityStarted: DownloadModel
+2023-10-05 13:45:29.225 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:190 - Feature sweeping enabled: False
+2023-10-05 13:45:29.226 - INFO - 45863 - azureml.automl.runtime.featurization.data_transformer.__init__:191 - Feature sweeping timeout: 86400
+2023-10-05 13:45:29.279 - INFO - 45863 - azureml.train.automl._model_download_utilities._log_activity:89 - ActivityCompleted: Activity=DownloadModel, HowEnded=Success, Duration=612.83[ms]
+2023-10-05 13:45:29.280 - INFO - 45863 - azureml.train.automl.run._log_activity:89 - ActivityCompleted: Activity=GetOutput, HowEnded=Success, Duration=902.84[ms]
