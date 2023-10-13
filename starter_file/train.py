@@ -2,7 +2,6 @@ from sklearn.tree import DecisionTreeRegressor
 import argparse
 import os
 import numpy as np
-from sklearn.metrics import root_mean_squared_error
 import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
