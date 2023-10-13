@@ -1,8 +1,6 @@
-*NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
+# Predicting annual income of neighborhoods of Madrid
+This project aims to demonstrate the kwnoledge acquired throughout Udacity's AzureML Engineer Nanodegree.
 
-# Your Project Title Here
-
-*TODO:* Write a short introduction to your project.
 
 ## Project Set Up and Installation
 *OPTIONAL:* If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to explain how to set up this project in AzureML.
@@ -10,13 +8,16 @@
 ## Dataset
 
 ### Overview
-*TODO*: Explain about the data you are using and where you got it from.
+For this project, we have selected an open dataset fetched from https://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=71359583a773a510VgnVCM2000001f4a900aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+It compiles socioeconomic information for all neighborhoods in Madrid. Information about families living in the neighborhood, their family members, their studies, the age of the buildings, number of schools, number of libraries, number of sport facilities, average age, number of kids, etcetera.
+
+The target variable is the average annual income of a family given the characteristics of the neighborhood.
 
 ### Task
-*TODO*: Explain the task you are going to be solving with this dataset and the features you will be using for it.
-
+The aim of the project is to develop a machine learning model that will predict the annual income of the average home in the neighborhood. It is a regression task. 
 ### Access
-*TODO*: Explain how you are accessing the data in your workspace.
+The dataset was uploaded to the workspace, and consumed both in the notebook (for display purposes) as well as in the train.py script. In order to access the dataset, we need to give context to the python enviroment of which workspace to use.
 
 ## Automated ML
 *TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
