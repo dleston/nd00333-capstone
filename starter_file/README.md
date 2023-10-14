@@ -25,6 +25,69 @@ The AutoML configuration is standard, trying to use as much nodes as available i
 
 The AutoML runs correctly and we can check its progress thanks to the show_output=True parameter when submiting the job.
 
+```
+Current status: FeaturesGeneration. Generating features for the dataset.
+Current status: DatasetCrossValidationSplit. Generating individually featurized CV splits.
+Current status: ModelSelection. Beginning model selection.
+
+********************************************************************************************
+DATA GUARDRAILS: 
+
+TYPE:         Missing feature values imputation
+STATUS:       PASSED
+DESCRIPTION:  No feature missing values were detected in the training data.
+              Learn more about missing value imputation: https://aka.ms/AutomatedMLFeaturization
+
+********************************************************************************************
+
+TYPE:         High cardinality feature detection
+STATUS:       PASSED
+DESCRIPTION:  Your inputs were analyzed, and no high cardinality features were detected.
+              Learn more about high cardinality feature handling: https://aka.ms/AutomatedMLFeaturization
+
+********************************************************************************************
+
+********************************************************************************************
+ITER: The iteration being evaluated.
+PIPELINE: A summary description of the pipeline being evaluated.
+DURATION: Time taken for the current iteration.
+METRIC: The result of computing score on the fitted pipeline.
+BEST: The best observed score thus far.
+********************************************************************************************
+
+ ITER   PIPELINE                                       DURATION            METRIC      BEST
+    0   MaxAbsScaler LightGBM                          0:00:23             0.0778    0.0778
+    3   StandardScalerWrapper ElasticNet               0:00:22             0.2518    0.0778
+    6   MaxAbsScaler ExtremeRandomTrees                0:00:21             0.0677    0.0677
+    7   StandardScalerWrapper ElasticNet               0:00:20             0.1316    0.0677
+    9   StandardScalerWrapper ElasticNet               0:00:24             0.1207    0.0677
+    1   MaxAbsScaler XGBoostRegressor                  0:00:23             0.0724    0.0677
+   10   MaxAbsScaler RandomForest                      0:00:22             0.0753    0.0677
+   12   StandardScalerWrapper ElasticNet               0:00:24             0.1482    0.0677
+    4   MaxAbsScaler ElasticNet                        0:00:23             0.1705    0.0677
+   11   StandardScalerWrapper ElasticNet               0:00:23             0.1316    0.0677
+   13   StandardScalerWrapper ElasticNet               0:00:24             0.1316    0.0677
+   14   StandardScalerWrapper ElasticNet               0:00:23             0.0876    0.0677
+   15   StandardScalerWrapper ElasticNet               0:00:23             0.1438    0.0677
+   16   StandardScalerWrapper DecisionTree             0:00:19             0.1115    0.0677
+    2   MaxAbsScaler ElasticNet                        0:00:22             0.1547    0.0677
+    5   MaxAbsScaler ElasticNet                        0:00:23             0.2596    0.0677
+    8   StandardScalerWrapper ElasticNet               0:00:21             0.2304    0.0677
+   17   StandardScalerWrapper ElasticNet               0:00:18             0.1294    0.0677
+   18   MaxAbsScaler DecisionTree                      0:00:22             0.1082    0.0677
+   19   StandardScalerWrapper ExtremeRandomTrees       0:00:24             0.0714    0.0677
+   23   StandardScalerWrapper RandomForest             0:02:04             0.0820    0.0677
+   26   MaxAbsScaler GradientBoosting                  0:02:04             0.0630    0.0630
+   27   MaxAbsScaler RandomForest                      0:02:04             0.1032    0.0630
+   20   StandardScalerWrapper ExtremeRandomTrees       0:02:04             0.0683    0.0630
+   21   StandardScalerWrapper ExtremeRandomTrees       0:02:04             0.0683    0.0630
+   25   MaxAbsScaler ExtremeRandomTrees                0:02:05             0.0662    0.0630
+   22   MaxAbsScaler ExtremeRandomTrees                0:02:05             0.0723    0.0630
+   24   MaxAbsScaler ExtremeRandomTrees                0:02:04             0.0714    0.0630
+   28    VotingEnsemble                                0:02:05             0.0584    0.0584
+   29    StackEnsemble                                 0:02:04             0.0581    0.0581
+```
+
 ### Results
 AutoML generated 29 pipelines, where we can check that the Stacking Ensemble is the best perfoming one.
 It combines the performance of several weak learners to create a meta-model that is an ElasticNet trained on the outputs of the weak learners.
@@ -99,8 +162,8 @@ I am thus unable to submit the best hyperparameter configuration from the hyperd
 On my company's AzureML suscription:
 ![Alt text](https://github.com/dleston/nd00333-capstone/blob/master/starter_file/screenshots/hyperdrive_failed_company_aml.png?raw=true)
 And on Udacity's Cloudlab:
-![Alt text](https://github.com/dleston/nd00333-capstone/blob/master/starter_file/screenshots/hyperdrive_failed_cloudlab_1.png?raw=true)
-![Alt text](https://github.com/dleston/nd00333-capstone/blob/master/starter_file/screenshots/hyperdrive_failed_cloudlab_3.png?raw=true)
+![Alt text](https://github.com/dleston/nd00333-capstone/blob/master/starter_file/screenshots/hyperdrive_failed_udacity_cloudlab_1.png?raw=true)
+![Alt text](https://github.com/dleston/nd00333-capstone/blob/master/starter_file/screenshots/hyperdrive_failed_udacity_cloudlab_3.png?raw=true)
 
 ## Model Deployment
 I deployed the model generated with AutoML on my company's AzureML suscription using the GUI. The endpoint is an HTTP REST API that is deployed using an Azure Container Instance (ACI).
