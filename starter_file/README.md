@@ -24,12 +24,12 @@ The dataset was uploaded to the workspace, and consumed both in the notebook (fo
 The AutoML configuration is standard, trying to use as much nodes as available in the compute cluster, and limiting the time available for the experiment. The rest of the configuration is specific for the regression task, indicating that the metric should be normalized RMSE, and using the compute cluster available for my analytics unit.
 
 The AutoML runs correctly and we can check its progress thanks to the show_output=True parameter when submiting the job.
-<imagen>
+![Alt text](https://github.com/dleston/nd00333_AZMLND_C2/blob/master/screenshots/registered_dataset.png?raw=true)
 
 ### Results
 AutoML generated 29 pipelines, where we can check that the Stacking Ensemble is the best perfoming one.
 It combines the performance of several weak learners to create a meta-model that is an ElasticNet trained on the outputs of the weak learners.
-<imagen>
+![Alt text](https://github.com/dleston/nd00333_AZMLND_C2/blob/master/screenshots/registered_dataset.png?raw=true)
 
 ## Hyperparameter Tuning
 I used a Decision Tree Regressor for predicting a continuous target variable. The reason for choosing a decision tree rather than other algorithms is explainability, and better performance with high cardinality datasets, such as the one we are using.
@@ -37,29 +37,29 @@ I used a Decision Tree Regressor for predicting a continuous target variable. Th
 The training script is `train.py` which loads the dataset from the workspace and then cleans it (I already cleansed it before uploading, so the clean_data function just separates the target variable from the features.
 It then splits the dataset into a train set and a test set, and fits a decision tree regressor using the hyperparameters provided in the arguments of the script. Then the script will finally log the R2 score.
 
-<imagen>
+![Alt text](https://github.com/dleston/nd00333_AZMLND_C2/blob/master/screenshots/registered_dataset.png?raw=true)
 
 We are letting hyperdrive sweep between combinations of three different hyperparameters of the decision tree:
 * `max_depth`: This hyperparameter controls the overall complexity of the decision tree. It allows to get a trade-off between an underfitted and overfitted decision tree. We allowed for number between 5 and 25.
 * `min_samples_leaf`: this hyperparameter allows to have leaves with a minimum number of samples and no further splits will be searched otherwise. We opted for 0.1% to 50% of the number of features.
 * `min_samples_split`: similar to the previous hyperparameter, but the minimum number of samples is specified in each split instead of leaf. We opted for 0.1% to 50% of the number of features.
 
-<imagen>
+![Alt text](https://github.com/dleston/nd00333_AZMLND_C2/blob/master/screenshots/registered_dataset.png?raw=true)
 
 ### Results
 Unfortunately, Hyperdrive did not correctly run on either my company's AzureML suscription (due to some problem with docker containers), nor did on the Cloud lab provided by Udacity, where there seems to be an authentication error that seems to have happened to to expiry of a code.
 
 I am thus unable to submit the best hyperparameter configuration from the hyperdrive run, nor I can register the best performing model.
 
-<imagen>
-<imagen>
-<imagen>
+![Alt text](https://github.com/dleston/nd00333_AZMLND_C2/blob/master/screenshots/registered_dataset.png?raw=true)
+![Alt text](https://github.com/dleston/nd00333_AZMLND_C2/blob/master/screenshots/registered_dataset.png?raw=true)
+![Alt text](https://github.com/dleston/nd00333_AZMLND_C2/blob/master/screenshots/registered_dataset.png?raw=true)
 
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 I deployed the model generated with AutoML on my company's AzureML suscription using the GUI. The endpoint is an HTTP REST API that is deployed using an Azure Container Instance (ACI).
-
 In order to query the endpoint, we will need to perform a POST request to the endpoint URI using the `inference.py` script, that contains an example request.
+![Alt text](https://github.com/dleston/nd00333_AZMLND_C2/blob/master/screenshots/registered_dataset.png?raw=true)
+
 
 ## Screen Recording
 [https://youtu.be/c8bgZIeZ8GM](https://youtu.be/c8bgZIeZ8GM)
